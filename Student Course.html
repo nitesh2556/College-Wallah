@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer Science Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Original CSS */
+        body, html, #app {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #app {
+            overflow: hidden;
+            touch-action: pan-up;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            text-shadow: 0 0 5px #ffffff, 0 0 20px #000, 0 0 30px #000;
+        }
+
+        #app h1 {
+            --fontSize: 60px;
+            --lineHeight: 80px;
+            width: auto;
+            height: calc(2 * var(--lineHeight));
+            line-height: var(--lineHeight);
+            margin: calc(50vh - var(--lineHeight)) auto 0;
+            font-size: var(--fontSize);
+            text-transform: uppercase;
+        }
+
+        #app a {
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #app canvas {
+            display: block;
+            position: fixed;
+            z-index: -1;
+            top: 0;
+        }
+
+        /* CSS for course section */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #f06, #aaf);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .course-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+
+        .course-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .course-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .course-link {
+            background: #f06;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .course-link:hover {
+            background: #d04;
+        }
+
+        @media (max-width: 600px) {
+            .course-card {
+                width: 100%;
+            }
+        }
+
+        /* Cube and Scene Styles */
+        body {
+            background: #222229;
+        }
+
+        .scene {
+            perspective: 1000;
+            width: 20em;
+            position: absolute;
+            top: 66%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cube {
+            color: #ccc;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
+            transform-style: preserve-3d;
+            transform-origin: 100% 50%;
+            width: 10em;
+            height: -8em;
+        }
+
+        .cube:hover {
+            transform: rotateX(-90deg);
+        }
+
+        .side {
+            box-sizing: border-box;
+            position: absolute;
+            display: inline-block;
+            height: 4em;
+            width: 10em;
+            text-align: center;
+            text-transform: uppercase;
+            padding-top: 1.5em;
+        }
+
+        .top {
+            background: #ff0000;
+            color: #222229;
+            transform: rotateX(90deg) translate3d(0, 0, 2em);
+        }
+
+        .front {
+            background: #222229;
+            color: #ffffff;
+            box-shadow: inset 0 0 0 5px #fff;
+            transform: translate3d(0, 0, 2em);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="hero">
+            <h1>Comprehensive IT and Technology Courses</h1>
+            <div class="scene">
+                <div class="cube">
+                    <a href="courses.html" target="_blank" class="side top">Click...</a>
+                    <span class="side front">BACK</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="course-list">
+            <!-- Row 1 -->
+            <div class="course-card">
+                <i class="fas fa-laptop-code course-icon"></i>
+                <div class="course-title">Web Development</div>
+                <div class="course-description">Learn HTML, CSS, and JavaScript.</div>
+                <a class="course-link" href="https://alison.com/course/web-development-advanced-css3-selectors-and-html5-elements-revised" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-chart-line course-icon"></i>
+                <div class="course-title">Data Science</div>
+                <div class="course-description">Introduction to Data Analysis and Machine Learning.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-data-science-revised" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-network-wired course-icon"></i>
+                <div class="course-title">Network Security</div>
+                <div class="course-description">Learn about network security protocols.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-computer-network-security-revised" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="course-card">
+                <i class="fas fa-cogs course-icon"></i>
+                <div class="course-title">Software Engineering</div>
+                <div class="course-description">Learn about software design patterns and architecture.</div>
+                <a class="course-link" href="https://alison.com/course/diploma-in-engineering-graphics-and-software" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-database course-icon"></i>
+                <div class="course-title">Database Management</div>
+                <div class="course-description">Learn about SQL and database design.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-database-concepts-revised" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-code course-icon"></i>
+                <div class="course-title">Programming Languages</div>
+                <div class="course-description">Introduction to popular programming languages.</div>
+                <a class="course-link" href="https://alison.com/course/swift-programming-language-for-mac-and-ios" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="course-card">
+                <i class="fas fa-cloud course-icon"></i>
+                <div class="course-title">Cloud Computing</div>
+                <div class="course-description">Learn about cloud architecture and services.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-mobile-and-cloud-computing-revised" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-robot course-icon"></i>
+                <div class="course-title">Artificial Intelligence</div>
+                <div class="course-description">Introduction to AI and Machine Learning concepts.</div>
+                <a class="course-link" href="https://alison.com/course/iso-iec-42001-2023-artificial-intelligence-management-system-aims" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-mobile-alt course-icon"></i>
+                <div class="course-title">Mobile App Development</div>
+                <div class="course-description">Learn about Android and iOS app development.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-mobile-app-development-with-flutter" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="course-card">
+                <i class="fas fa-info-circle course-icon"></i>
+                <div class="course-title">Information Systems</div>
+                <div class="course-description">Learn about information systems and business processes.</div>
+                <a class="course-link" href="https://alison.com/course/it-management-building-information-systems-revised" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-microchip course-icon"></i>
+                <div class="course-title">Embedded Systems</div>
+                <div class="course-description">Learn about microcontrollers and hardware design.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-embedded-systems-design" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-gamepad course-icon"></i>
+                <div class="course-title">Game Development</div>
+                <div class="course-description">Learn about game design and development.</div>
+                <a class="course-link" href="https://alison.com/course/diploma-in-3d-game-development-with-unity-engine" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="course-card">
+                <i class="fas fa-tools course-icon"></i>
+                <div class="course-title">DevOps</div>
+                <div class="course-description">Learn about continuous integration and deployment.</div>
+                <a class="course-link" href="https://alison.com/course/devops-fundamentals" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-briefcase course-icon"></i>
+                <div class="course-title">Business Intelligence</div>
+                <div class="course-description">Learn about business intelligence and data visualization.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-business-intelligence" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-project-diagram course-icon"></i>
+                <div class="course-title">Project Management</div>
+                <div class="course-description">Learn about project management and agile methodologies.</div>
+                <a class="course-link" href="https://alison.com/course/project-management-fundamentals" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="course-card">
+                <i class="fas fa-user-shield course-icon"></i>
+                <div class="course-title">Cybersecurity</div>
+                <div class="course-description">Learn about cybersecurity techniques and practices.</div>
+                <a class="course-link" href="https://alison.com/course/diploma-in-cyber-security" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-brain course-icon"></i>
+                <div class="course-title">Deep Learning</div>
+                <div class="course-description">Learn about neural networks and deep learning.</div>
+                <a class="course-link" href="https://alison.com/course/basics-of-prompt-engineering" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-digital-tachograph course-icon"></i>
+                <div class="course-title">Digital Transformation</div>
+                <div class="course-description">Learn about digital transformation and business innovation.</div>
+                <a class="course-link" href="https://alison.com/course/introduction-to-genetic-transformation-in-plant-cells" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 7 -->
+            <div class="course-card">
+                <i class="fas fa-code-branch course-icon"></i>
+                <div class="course-title">Version Control</div>
+                <div class="course-description">Learn about version control systems like Git.</div>
+                <a class="course-link" href="https://alison.com/course/devops-fundamentals" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-pen course-icon"></i>
+                <div class="course-title">Technical Writing</div>
+                <div class="course-description">Learn about writing technical documentation.</div>
+                <a class="course-link" href="https://alison.com/course/technical-writing-essentials" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-bug course-icon"></i>
+                <div class="course-title">Software Testing</div>
+                <div class="course-description">Learn about software testing techniques.</div>
+                <a class="course-link" href="https://alison.com/course/theory-of-software-testing" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 8 -->
+            <div class="course-card">
+                <i class="fas fa-network-wired course-icon"></i>
+                <div class="course-title">Networking Basics</div>
+                <div class="course-description">Introduction to networking concepts.</div>
+                <a class="course-link" href="https://alison.com/course/basics-of-computer-networking" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-sync-alt course-icon"></i>
+                <div class="course-title">Automation</div>
+                <div class="course-description">Learn about automation tools and scripts.</div>
+                <a class="course-link" href="https://alison.com/course/business-process-automation" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-brush course-icon"></i>
+                <div class="course-title">UI/UX Design</div>
+                <div class="course-description">Learn about user interface and user experience design.</div>
+                <a class="course-link" href="https://alison.com/course/ui-ux-design-using-adobe-xd" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 9 -->
+            <div class="course-card">
+                <i class="fas fa-user-robot course-icon"></i>
+                <div class="course-title">Automation Testing</div>
+                <div class="course-description">Learn about test automation frameworks.</div>
+                <a class="course-link" href="https://alison.com/course/robotic-process-automation" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-code course-icon"></i>
+                <div class="course-title">Object-Oriented Programming</div>
+                <div class="course-description">Introduction to OOP concepts and design patterns.</div>
+                <a class="course-link" href="#" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-terminal course-icon"></i>
+                <div class="course-title">Command Line Basics</div>
+                <div class="course-description">Learn how to use the command line and scripting.</div>
+                <a class="course-link" href="https://alison.com/course/aws-command-line-interface-for-devops" target="_blank">Learn More</a>
+            </div>
+
+            <!-- Row 10 -->
+            <div class="course-card">
+                <i class="fas fa-network-wired course-icon"></i>
+                <div class="course-title">Wireless Networking</div>
+                <div class="course-description">Introduction to wireless networking concepts.</div>
+                <a class="course-link" href="https://alison.com/course/computer-networking-wired-and-wireless-networks-and-protocols-revised" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-cogs course-icon"></i>
+                <div class="course-title">Operating Systems</div>
+                <div class="course-description">Learn about operating system concepts.</div>
+                <a class="course-link" href="https://alison.com/course/deadlock-and-memory-management-in-operating-systems" target="_blank">Learn More</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-user-clock course-icon"></i>
+                <div class="course-title">Time Management for Programmers</div>
+                <div class="course-description">Learn effective time management techniques.</div>
+                <a class="course-link" href="#" target="_blank">Learn More</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        import { neonCursor } from 'https://unpkg.com/threejs-toys@0.0.8/build/threejs-toys.module.cdn.min.js';
+
+        neonCursor({
+            el: document.getElementById('app'),
+            shaderPoints: 16,
+            curvePoints: 80,
+            curveLerp: 0.5,
+            radius1: 5,
+            radius2: 30,
+            velocityTreshold: 10,
+            sleepRadiusX: 100,
+            sleepRadiusY: 100,
+            sleepTimeCoefX: 0.0025,
+            sleepTimeCoefY: 0.0025
+        });
+    </script>
+</body>
+</html>
